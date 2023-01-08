@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import './stylesheets/App.css';
+import ProfileBoard from "./components/ProfileBoard";
 import { ReactComponent as SunSVG } from './imgs/sun.svg';
 import { ReactComponent as SearchSVG } from './imgs/search.svg';
 
@@ -21,6 +22,7 @@ function App() {
           <input id='github-search-submit' type='submit' value='Search' className="pointer"/>
         </form>
       </div>
+      <ProfileBoard />
     </div>
     </>
   );
