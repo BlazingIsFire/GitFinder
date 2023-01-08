@@ -53,6 +53,7 @@
     padding-left: 3rem;
     border-radius: 1rem;
     font-family: 'Kanit';
+    box-shadow: 0 0 1rem 0 #000000;
 }
 #github-search::placeholder{
     font-family: 'Kanit';
