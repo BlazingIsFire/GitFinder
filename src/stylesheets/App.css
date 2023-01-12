@@ -10,7 +10,7 @@
     z-index: 1;
     height: 100vh;
     position: relative;
-    background: #282c34;
+    transition: all .4s ease;
 }
 .app-header{
     margin: 0;
@@ -23,13 +23,23 @@
     width: 2rem;
     fill: #ffffff;
 }
+#moon-svg{
+    width: 2rem;
+    fill: #282c34;
+}
 .app-header h2{
     margin: 0;
     color: #FF5733;
     font-family: 'Kanit';
     letter-spacing: .2rem;
 }
-.theme-label{
+.sun-theme-label{
+    gap: .5rem;
+    color: #ffffff;
+    font-family: 'Kanit';
+    letter-spacing: .1rem;
+}
+.moon-theme-label{
     gap: .5rem;
     color: #ffffff;
     font-family: 'Kanit';
@@ -78,4 +88,22 @@
     border-radius: 1rem;
     font-family: 'Kanit';
     background: #FF5733;
+}
+
+/* 
+==========================================================================
+ = Start of page themes =
+==========================================================================
+*/
+#dark.app-container{
+    background-color: #282c34;
+}
+#light.app-container{
+    background-color: #ffffff;
+}
+#light #sun-svg,
+#light .moon-theme-label{
+    color: #282c34;
+    fill: #282c34;
+    font-weight: 800;
 }
