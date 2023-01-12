@@ -64,8 +64,9 @@
 }
 .profile-box-bio #username-tag{
     margin: 0;
-    color: #FF5733;
+    width: fit-content;
     font-size: 16px;
+    color: #FF5733;
     margin-top: .25rem;
     font-family: 'Kanit';
 }
