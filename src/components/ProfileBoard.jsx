@@ -7,19 +7,19 @@ import { ReactComponent as LinkSVG } from '../imgs/link.svg';
 import { ReactComponent as TwitterSVG } from '../imgs/twitter.svg';
 import { ReactComponent as LocationSVG } from '../imgs/location.svg';
 
-export default function ProfileBoard() {
+export default function ProfileBoard({ data }) {
   return (
     <div className='profile-box flex'>
         <div  className='profile-left-container flex flex-column flex-align-center'>
-            <img src={Avatar} id='profile-img'/>
+            <img src={Avatar} id='profile-img' alt='User'/>
         </div>
         <div className='profile-right-container'>
             <div className='profile-box-head flex flex-align-center'>
                 <a id='display-name' href='https://google.com'>Blazing</a>
-                <h5 id='join-date'>Joined Jan 01 2000</h5>
+                <h5 id='join-date'>Joined: Jan 01 2000</h5>
             </div>
             <div className='profile-box-bio flex flex-column'>
-                <a id='username-tag'>@BlazingIsFire</a>
+                <a id='username-tag' href='https://google.com'>@BlazingIsFire</a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget luctus justo, non varius nulla. Nam ultrices eget diam quis posuere. Integer pulvinar, risus sed consectetur consectetur, odio massa condimentum metus, vitae semper diam quam ac tellus. Cras efficitur neque et dolor porta hendrerit. Sed at ex a augue molestie venenatis.</p>
             </div>
             <div className='profile-info-box flex flex-center-all'>
