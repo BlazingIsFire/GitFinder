@@ -13,6 +13,7 @@ function App() {
   // all useStates
   const [theme, setTheme] = useState('dark');
   const [userData, setUserData] = useState(null);
+  const [searchError, setSearchError] = useState();
 
   // all functions
 
@@ -21,8 +22,11 @@ function App() {
     e.preventDefault();
     try{
       const res = await axios.get(`https://api.github.com/users/${usernameRef.current.value}`);
+      setSearchError();
       return setUserData(res.data);
     } catch (err){
+      setUserData(null);
+      setSearchError('User does not exist.');
       return console.log(err);
     }
   }
@@ -40,7 +44,7 @@ function App() {
     <>
     <div className="app-container flex-center-all flex-column" id={theme}>
       <div className="app-header flex flex-row">
-        <h2>Gitfinder</h2>
+        <h2>GitFinder</h2>
         <span className={`${theme === 'dark' ? 'sun-theme-label flex flex-align-center' : 'display-none'}`}>
           Light <SunSVG id="sun-svg" className="pointer" onClick={handleThemeChange}/>
         </span>
@@ -51,10 +55,11 @@ function App() {
       <div className="flex-center-all">
         <form className="app-search flex" onSubmit={handleSearch}>
           <SearchSVG id="search-svg"/>
-          <input ref={usernameRef} id='github-search' type='text' placeholder="Search Github username..."/>
+          <input ref={usernameRef} id='github-search' type='text' placeholder="Search a Github username..." required/>
           <input id='github-search-submit' type='submit' value='Search' className="pointer"/>
         </form>
       </div>
+      {searchError ? <label id='user-error-label'>{searchError}</label> : ''}
       {userData ? <ProfileBoard data={userData}/> : ''}
     </div>
     </>
