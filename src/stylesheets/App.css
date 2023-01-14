@@ -27,6 +27,11 @@
     width: 2rem;
     fill: #282c34;
 }
+#sun-svg:hover,
+#moon-svg:hover{
+    scale: 1.1;
+    transition: all .5s ease;
+}
 .app-header h2{
     margin: 0;
     color: #FF5733;
@@ -63,6 +68,7 @@
     padding-left: 3rem;
     border-radius: 1rem;
     font-family: 'Kanit';
+    background-color: #ffffff;
     box-shadow: 0 0 1rem 0 #000000;
 }
 #github-search::placeholder{
@@ -71,6 +77,26 @@
 #github-search:focus{
     transition: all .2s ease;
     outline: 2px solid #FF5733;
+}
+#user-error-label{
+    margin: 0;
+    margin-top: 2rem;
+    color: #fffb00;
+    animation: invalidName .5s;
+}
+@keyframes invalidName {
+    0%{
+        transform: translateX(0%);
+    }
+    25%{
+        transform: translateX(-10%);
+    }
+    50%{
+        transform: translateX(10%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
 }
 #search-svg{
     left: 1rem;
@@ -88,6 +114,9 @@
     border-radius: 1rem;
     font-family: 'Kanit';
     background: #FF5733;
+}
+#github-search-submit:hover{
+    background: #ff7d60;
 }
 
 /* 
@@ -107,3 +136,9 @@
     fill: #282c34;
     font-weight: 800;
 }
+
+/* 
+==========================================================================
+ = Start of Media's =
+==========================================================================
+*/
