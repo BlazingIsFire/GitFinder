@@ -1,59 +1,68 @@
-import React from 'react';
-import Avatar from '../imgs/avatar.png';
+import React, { useEffect, useState } from 'react';
+import Person from '../imgs/person.svg';
 import '../stylesheets/index.css';
 import '../stylesheets/ProfileBoard.css';
-import { ReactComponent as WorkSVG } from '../imgs/workplace.svg';
 import { ReactComponent as LinkSVG } from '../imgs/link.svg';
+import { ReactComponent as WorkSVG } from '../imgs/workplace.svg';
 import { ReactComponent as TwitterSVG } from '../imgs/twitter.svg';
 import { ReactComponent as LocationSVG } from '../imgs/location.svg';
 
 export default function ProfileBoard({ data }) {
+    const [userJoined, setUserJoined] = useState();
+
+    useEffect(()=>{
+        let joinedFullDate = data.created_at.slice(0, -10);
+        let joinedYear = joinedFullDate.substring(4, -6);
+        let joinedMonth = joinedFullDate.substring(5, 7);
+        let joinedDay = joinedFullDate.substring(10, 8);
+        setUserJoined(`${joinedMonth}-${joinedDay}-${joinedYear}`)
+    }, [data])
   return (
     <div className='profile-box flex'>
         <div  className='profile-left-container flex flex-column flex-align-center'>
-            <img src={Avatar} id='profile-img' alt='User'/>
+            <img src={data.avatar_url ? data.avatar_url : Person} id='profile-img' alt='User'/>
         </div>
         <div className='profile-right-container'>
             <div className='profile-box-head flex flex-align-center'>
-                <a id='display-name' href='https://google.com'>Blazing</a>
-                <h5 id='join-date'>Joined: Jan 01 2000</h5>
+                <h2 id='display-name'>{data.name}</h2>
+                <h5 id='join-date'>Joined: {userJoined}</h5>
             </div>
             <div className='profile-box-bio flex flex-column'>
-                <a id='username-tag' href='https://google.com'>@BlazingIsFire</a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget luctus justo, non varius nulla. Nam ultrices eget diam quis posuere. Integer pulvinar, risus sed consectetur consectetur, odio massa condimentum metus, vitae semper diam quam ac tellus. Cras efficitur neque et dolor porta hendrerit. Sed at ex a augue molestie venenatis.</p>
+                <a id='username-tag' href={data.html_url} target='_blank' title='Github' rel='noreferrer'>@{data.login}</a>
+                <p>{data.bio ? data.bio : 'This profile has no bio.'}</p>
             </div>
             <div className='profile-info-box flex flex-center-all'>
                 <div className='profile-repos flex flex-column'>
                     <h5>Repos</h5>
-                    <p>0</p>
+                    <p>{<a href={data.repos_url} target="_blank" rel='noreferrer'>{data.public_repos}</a>}</p>
                 </div>
                 <div className='profile-followers'>
                     <h5>Followers</h5>
-                    <p>0</p>
+                    <p>{data.followers}</p>
                 </div>
                 <div className='profile-following'>
                     <h5>Following</h5>
-                    <p>0</p>
+                    <p>{data.following}</p>
                 </div>
             </div>
             <div className='profile-details-top flex flex-row'>
                 <span className='flex flex-align-center'>
                     <LocationSVG id='profile-detail-svg'/>
-                    Pasadena, MD
+                    {data.location ? data.location : 'No location displayed.'}
                 </span>
                 <span className='flex flex-align-center'>
                     <TwitterSVG id='profile-detail-svg'/>
-                    @Unavailable
+                    {data.twitter_username ? data.twitter_username : '@Unavailable'}
                 </span>
             </div>
             <div className='profile-details-bottom flex flex-row'>
                 <span className='flex flex-align-center'>
                     <LinkSVG id='profile-detail-svg'/>
-                    Website Link
+                    {data.blog ? <a href={data.blog} target='_blank' rel='noreferrer'>User's Website</a> : 'No website linked.'}
                 </span>
                 <span className='flex flex-align-center'>
                     <WorkSVG id='profile-detail-svg'/>
-                    Unavailable
+                    {data.company ? data.company : 'Unavailable'}
                 </span>
             </div>
         </div>
