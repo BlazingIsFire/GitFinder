@@ -55,7 +55,7 @@ function App() {
           <input id='github-search-submit' type='submit' value='Search' className="pointer"/>
         </form>
       </div>
-      <ProfileBoard data={userData}/>
+      {userData ? <ProfileBoard data={userData}/> : ''}
     </div>
     </>
   );
