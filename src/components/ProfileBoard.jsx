@@ -24,7 +24,7 @@ export default function ProfileBoard({ data }) {
         </div>
         <div className='profile-right-container'>
             <div className='profile-box-head flex flex-align-center'>
-                <h2 id='display-name'>{data.name}</h2>
+                <h2 id='display-name'>{data.name ? data.name : 'No display name.'}</h2>
                 <h5 id='join-date'>Joined: {userJoined}</h5>
             </div>
             <div className='profile-box-bio flex flex-column'>
@@ -34,7 +34,7 @@ export default function ProfileBoard({ data }) {
             <div className='profile-info-box flex flex-center-all'>
                 <div className='profile-repos flex flex-column'>
                     <h5>Repos</h5>
-                    <p>{<a href={data.repos_url} target="_blank" rel='noreferrer'>{data.public_repos}</a>}</p>
+                    <p>{<a href={`https://github.com/${data.login}?tab=repositories`} target="_blank" rel='noreferrer'>{data.public_repos}</a>}</p>
                 </div>
                 <div className='profile-followers'>
                     <h5>Followers</h5>
@@ -52,15 +52,15 @@ export default function ProfileBoard({ data }) {
                 </span>
                 <span className='flex flex-align-center'>
                     <TwitterSVG id='profile-detail-svg'/>
-                    {data.twitter_username ? data.twitter_username : '@Unavailable'}
+                    {data.twitter_username ? `@${data.twitter_username}` : '@Unavailable'}
                 </span>
             </div>
             <div className='profile-details-bottom flex flex-row'>
                 <span className='flex flex-align-center'>
                     <LinkSVG id='profile-detail-svg'/>
-                    {data.blog ? <a href={data.blog} target='_blank' rel='noreferrer'>User's Website</a> : 'No website linked.'}
+                    {data.blog ? <a href={data.blog} target='_blank' rel='noreferrer' title={data.blog}>User's Website</a> : 'No website linked.'}
                 </span>
-                <span className='flex flex-align-center'>
+                <span className='flex flex-align-center' id='company-span'>
                     <WorkSVG id='profile-detail-svg'/>
                     {data.company ? data.company : 'Unavailable'}
                 </span>
