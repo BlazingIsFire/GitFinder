@@ -69,11 +69,12 @@
     color: #FF5733;
     margin-top: .25rem;
     font-family: 'Kanit';
+    text-decoration: none;
 }
 .profile-box-bio p{
     margin: 0;
     font-size: 16px;
-    margin-top: 1rem;
+    margin-top: .5rem;
     max-width: 24rem;
     overflow: hidden;
     display: -webkit-box;
@@ -84,7 +85,7 @@
 .profile-info-box{
     width: 100%;
     height: 3.5rem;
-    margin-top: .5rem;
+    margin-top: 1rem;
     border-radius: 1rem;
     justify-content: space-around;
     background-color: #FF5733;
@@ -96,11 +97,14 @@
     font-family: 'Varela Round';
 }
 .profile-repos p,
+.profile-repos p a,
 .profile-followers p,
 .profile-following p{
     margin: 0;
+    color: #000000;
     text-align: center;
     font-family: 'Kanit';
+    text-decoration: none;
 }
 
 .profile-details-top{
@@ -128,4 +132,8 @@
 .profile-details-bottom span{
     gap: .25rem;
     font-family: "Kanit";
+}
+.profile-details-bottom span a{
+    color: #FF5733;
+    text-decoration: none;
 }
