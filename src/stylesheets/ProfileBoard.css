@@ -137,3 +137,38 @@
     color: #FF5733;
     text-decoration: none;
 }
+
+/* 
+==========================================================================
+ = Start of Media's =
+==========================================================================
+*/
+
+@media only screen and (max-width: 500px){
+    .profile-box{
+        min-width: 19rem;
+        flex-direction: column;
+    }
+    .profile-right-container{
+        width: 100%;
+        margin-left: 0;
+    }
+    .profile-left-container{
+        width: unset;
+    }
+    .profile-box-bio p{
+        max-width: 20rem;
+    }
+    .profile-details-top,
+    .profile-details-bottom{
+        gap: 4px;
+        padding: 0;
+        flex-direction: column;
+    }
+    .profile-details-top{
+        margin-top: 12px;
+    }
+    .profile-details-bottom{
+        margin-top: 22px;
+    }
+}
