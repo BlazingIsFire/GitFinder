@@ -8,8 +8,10 @@ import { ReactComponent as TwitterSVG } from '../imgs/twitter.svg';
 import { ReactComponent as LocationSVG } from '../imgs/location.svg';
 
 export default function ProfileBoard({ data }) {
+    // all useStates
     const [userJoined, setUserJoined] = useState();
 
+    // useEffect to load users data and join date on load
     useEffect(()=>{
         let joinedFullDate = data.created_at.slice(0, -10);
         let joinedYear = joinedFullDate.substring(4, -6);
