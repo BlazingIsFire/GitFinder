@@ -55,7 +55,7 @@ function App() {
       <div className="flex-center-all">
         <form className="app-search flex" onSubmit={handleSearch}>
           <SearchSVG id="search-svg"/>
-          <input ref={usernameRef} id='github-search' type='text' placeholder="Search a Github username..." required/>
+          <input ref={usernameRef} id='github-search' type='text' placeholder="Search a Github username..." enterKeyHint="search" required/>
           <input id='github-search-submit' type='submit' value='Search' className="pointer"/>
         </form>
       </div>

@@ -146,7 +146,7 @@
 
 @media only screen and (max-width: 500px){
     .profile-box{
-        min-width: 19rem;
+        min-width: 20rem;
         flex-direction: column;
     }
     .profile-right-container{
