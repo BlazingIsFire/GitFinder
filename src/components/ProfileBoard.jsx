@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Person from '../imgs/person.svg';
 import '../stylesheets/index.css';
+import Person from '../imgs/person.svg';
 import '../stylesheets/ProfileBoard.css';
 import { ReactComponent as LinkSVG } from '../imgs/link.svg';
 import { ReactComponent as WorkSVG } from '../imgs/workplace.svg';
@@ -29,7 +29,7 @@ export default function ProfileBoard({ data }) {
             </div>
             <div className='profile-box-bio flex flex-column'>
                 <a id='username-tag' href={data.html_url} target='_blank' title='Github' rel='noreferrer'>@{data.login}</a>
-                <p>{data.bio ? data.bio : 'This profile has no bio.'}</p>
+                <p title={data.bio}>{data.bio ? data.bio : 'This profile has no bio.'}</p>
             </div>
             <div className='profile-info-box flex flex-center-all'>
                 <div className='profile-repos flex flex-column'>
