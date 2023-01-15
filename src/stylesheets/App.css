@@ -148,6 +148,11 @@
     #github-search{
         min-width: 19rem;
     }
+    #github-search{
+        -webkit-appearance: none;
+        box-shadow: 0 0 1rem 0 #000000;
+        -webkit-box-shadow: 0 0 1rem 0 #000000
+    }
     #github-search:focus{
         outline: unset;
         border: 2px solid #FF5733;
